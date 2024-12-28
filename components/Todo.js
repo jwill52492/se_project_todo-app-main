@@ -23,6 +23,8 @@ class Todo {
   }
 
   _generateDate() {
+    const dueDate = new Date(this._data.date);
+
     if (!isNaN(dueDate)) {
       this._todoDate.textContent = `Due: ${dueDate.toLocaleString("en-US", {
         year: "numeric",
@@ -46,6 +48,7 @@ class Todo {
 
     this._generateCheckboxEl();
     this._setEventListeners();
+    this._generateDate();
 
     return this._todoElement;
   }
